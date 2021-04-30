@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>50</ID>
+      <Description>"Anti-Kick/Ban"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"Anti-Kick/Ban (1/2)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-30
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1ECE87E)
+define(bytes,8A 40 44 C3 CC)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  mov al,F6
+  ret
+  int 3
+  jmp return
+
+code:
+  mov al,[eax+44]
+  ret 
+  int 3 
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov al,[eax+44]
+  // ret 
+  // int 3 
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1ECE87E
+
+"GameAssembly.dll"+1ECE85F: 75 09                 -  jne GameAssembly.dll+1ECE86A
+"GameAssembly.dll"+1ECE861: 50                    -  push eax
+"GameAssembly.dll"+1ECE862: E8 09 E5 2D FE        -  call GameAssembly.dll+1ACD70
+"GameAssembly.dll"+1ECE867: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+1ECE86A: 6A 00                 -  push 00
+"GameAssembly.dll"+1ECE86C: 6A 00                 -  push 00
+"GameAssembly.dll"+1ECE86E: E8 0D 03 00 00        -  call GameAssembly.dll+1ECEB80
+"GameAssembly.dll"+1ECE873: A1 18 D1 1D 5B        -  mov eax,[GameAssembly.dll+28ED118]
+"GameAssembly.dll"+1ECE878: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+1ECE87B: 8B 40 5C              -  mov eax,[eax+5C]
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1ECE87E: 8A 40 44              -  mov al,[eax+44]
+"GameAssembly.dll"+1ECE881: C3                    -  ret 
+"GameAssembly.dll"+1ECE882: CC                    -  int 3 
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1ECE883: CC                    -  int 3 
+"GameAssembly.dll"+1ECE884: CC                    -  int 3 
+"GameAssembly.dll"+1ECE885: CC                    -  int 3 
+"GameAssembly.dll"+1ECE886: CC                    -  int 3 
+"GameAssembly.dll"+1ECE887: CC                    -  int 3 
+"GameAssembly.dll"+1ECE888: CC                    -  int 3 
+"GameAssembly.dll"+1ECE889: CC                    -  int 3 
+"GameAssembly.dll"+1ECE88A: CC                    -  int 3 
+"GameAssembly.dll"+1ECE88B: CC                    -  int 3 
+"GameAssembly.dll"+1ECE88C: CC                    -  int 3 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"Anti-Kick/Ban (2/2)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-30
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1327212)
+define(bytes,0F 8D 27 01 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  jmp return
+
+code:
+  jnl GameAssembly.dll+132733F
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // jnl GameAssembly.dll+132733F
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1327212
+
+"GameAssembly.dll"+13271EE: 75 0E                 -  jne GameAssembly.dll+13271FE
+"GameAssembly.dll"+13271F0: 50                    -  push eax
+"GameAssembly.dll"+13271F1: E8 7A 5B E8 FE        -  call GameAssembly.dll+1ACD70
+"GameAssembly.dll"+13271F6: A1 70 D1 1D 5B        -  mov eax,[GameAssembly.dll+28ED170]
+"GameAssembly.dll"+13271FB: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+13271FE: 8B 40 5C              -  mov eax,[eax+5C]
+"GameAssembly.dll"+1327201: 8B 80 E8 00 00 00     -  mov eax,[eax+000000E8]
+"GameAssembly.dll"+1327207: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+1327209: 0F 84 37 01 00 00     -  je GameAssembly.dll+1327346
+"GameAssembly.dll"+132720F: 3B 70 0C              -  cmp esi,[eax+0C]
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1327212: 0F 8D 27 01 00 00     -  jnl GameAssembly.dll+132733F
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1327218: 85 FF                 -  test edi,edi
+"GameAssembly.dll"+132721A: 0F 84 26 01 00 00     -  je GameAssembly.dll+1327346
+"GameAssembly.dll"+1327220: 6A 00                 -  push 00
+"GameAssembly.dll"+1327222: 57                    -  push edi
+"GameAssembly.dll"+1327223: E8 38 C5 30 FF        -  call GameAssembly.dll+633760
+"GameAssembly.dll"+1327228: 8B D8                 -  mov ebx,eax
+"GameAssembly.dll"+132722A: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+132722D: A1 70 D1 1D 5B        -  mov eax,[GameAssembly.dll+28ED170]
+"GameAssembly.dll"+1327232: F6 80 BB 00 00 00 02  -  test byte ptr [eax+000000BB],02
+"GameAssembly.dll"+1327239: 74 14                 -  je GameAssembly.dll+132724F
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Free or Quick Chat"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-23
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1ECD497)
+define(bytes,8B 41 5C 8B 40 2C)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  mov eax,00000001
+  jmp return
+
+code:
+  mov eax,[ecx+5C]
+  mov eax,[eax+2C]
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov eax,[ecx+5C]
+  // mov eax,[eax+2C]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1ECD497
+
+"GameAssembly.dll"+1ECD47A: 74 1B                 -  je GameAssembly.dll+1ECD497
+"GameAssembly.dll"+1ECD47C: 83 79 74 00           -  cmp dword ptr [ecx+74],00
+"GameAssembly.dll"+1ECD480: 75 15                 -  jne GameAssembly.dll+1ECD497
+"GameAssembly.dll"+1ECD482: 51                    -  push ecx
+"GameAssembly.dll"+1ECD483: E8 E8 F8 2D FE        -  call GameAssembly.dll+1ACD70
+"GameAssembly.dll"+1ECD488: A1 18 D1 B4 5C        -  mov eax,[GameAssembly.dll+28ED118]
+"GameAssembly.dll"+1ECD48D: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+1ECD490: 8B 40 5C              -  mov eax,[eax+5C]
+"GameAssembly.dll"+1ECD493: 8B 40 2C              -  mov eax,[eax+2C]
+"GameAssembly.dll"+1ECD496: C3                    -  ret 
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1ECD497: 8B 41 5C              -  mov eax,[ecx+5C]
+"GameAssembly.dll"+1ECD49A: 8B 40 2C              -  mov eax,[eax+2C]
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1ECD49D: C3                    -  ret 
+"GameAssembly.dll"+1ECD49E: CC                    -  int 3 
+"GameAssembly.dll"+1ECD49F: CC                    -  int 3 
+"GameAssembly.dll"+1ECD4A0: 80 3D F4 D6 BF 5C 00  -  cmp byte ptr [GameAssembly.dll+299D6F4],00
+"GameAssembly.dll"+1ECD4A7: 75 14                 -  jne GameAssembly.dll+1ECD4BD
+"GameAssembly.dll"+1ECD4A9: 68 18 D1 B4 5C        -  push GameAssembly.dll+28ED118
+"GameAssembly.dll"+1ECD4AE: E8 ED 98 34 FE        -  call GameAssembly.dll+216DA0
+"GameAssembly.dll"+1ECD4B3: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+1ECD4B6: C6 05 F4 D6 BF 5C 01  -  mov byte ptr [GameAssembly.dll+299D6F4],01
+"GameAssembly.dll"+1ECD4BD: A1 18 D1 B4 5C        -  mov eax,[GameAssembly.dll+28ED118]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"Fix Emergencies While Dead"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-24
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1713B1C)
+define(bytes,80 78 2D 00 74 44)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  cmp byte ptr [eax+2D],00
+  jmp GameAssembly.dll+1713B66
+  jmp return
+
+code:
+  cmp byte ptr [eax+2D],00
+  je GameAssembly.dll+1713B66
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // cmp byte ptr [eax+2D],00
+  // je GameAssembly.dll+1713B66
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1713B1C
+
+"GameAssembly.dll"+1713AFB: 0F 84 00 02 00 00     -  je GameAssembly.dll+1713D01
+"GameAssembly.dll"+1713B01: 6A 00                 -  push 00
+"GameAssembly.dll"+1713B03: 50                    -  push eax
+"GameAssembly.dll"+1713B04: 8D 45 CC              -  lea eax,[ebp-34]
+"GameAssembly.dll"+1713B07: 50                    -  push eax
+"GameAssembly.dll"+1713B08: E8 F3 04 36 FF        -  call GameAssembly.dll+A74000
+"GameAssembly.dll"+1713B0D: 83 C4 0C              -  add esp,0C
+"GameAssembly.dll"+1713B10: F3 0F 7E 00           -  movq xmm0,[eax]
+"GameAssembly.dll"+1713B14: 8B 45 0C              -  mov eax,[ebp+0C]
+"GameAssembly.dll"+1713B17: 66 0F D6 45 D8        -  movq [ebp-28],xmm0
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1713B1C: 80 78 2D 00           -  cmp byte ptr [eax+2D],00
+"GameAssembly.dll"+1713B20: 74 44                 -  je GameAssembly.dll+1713B66
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1713B22: A1 98 DF 5A 5B        -  mov eax,[GameAssembly.dll+28EDF98]
+"GameAssembly.dll"+1713B27: F6 80 BB 00 00 00 02  -  test byte ptr [eax+000000BB],02
+"GameAssembly.dll"+1713B2E: 74 14                 -  je GameAssembly.dll+1713B44
+"GameAssembly.dll"+1713B30: 83 78 74 00           -  cmp dword ptr [eax+74],00
+"GameAssembly.dll"+1713B34: 75 0E                 -  jne GameAssembly.dll+1713B44
+"GameAssembly.dll"+1713B36: 50                    -  push eax
+"GameAssembly.dll"+1713B37: E8 34 92 A9 FE        -  call GameAssembly.dll+1ACD70
+"GameAssembly.dll"+1713B3C: A1 98 DF 5A 5B        -  mov eax,[GameAssembly.dll+28EDF98]
+"GameAssembly.dll"+1713B41: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+1713B44: 8B 40 5C              -  mov eax,[eax+5C]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"Quick-Fix O2 Emergency (Just Click the Green Button)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-24
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+15D81CE)
+define(bytes,3B 46 38 74 6E)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  cmp eax,[esi+38]
+  jmp GameAssembly.dll+15D8241
+  jmp return
+
+code:
+  cmp eax,[esi+38]
+  je GameAssembly.dll+15D8241
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // cmp eax,[esi+38]
+  // je GameAssembly.dll+15D8241
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+15D81CE
+
+"GameAssembly.dll"+15D81AD: 8B E5                 -  mov esp,ebp
+"GameAssembly.dll"+15D81AF: 5D                    -  pop ebp
+"GameAssembly.dll"+15D81B0: C3                    -  ret 
+"GameAssembly.dll"+15D81B1: C7 47 08 FF FF FF FF  -  mov [edi+08],FFFFFFFF
+"GameAssembly.dll"+15D81B8: 85 F6                 -  test esi,esi
+"GameAssembly.dll"+15D81BA: 0F 84 A8 03 00 00     -  je GameAssembly.dll+15D8568
+"GameAssembly.dll"+15D81C0: 8B 46 4C              -  mov eax,[esi+4C]
+"GameAssembly.dll"+15D81C3: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+15D81C5: 0F 84 9D 03 00 00     -  je GameAssembly.dll+15D8568
+"GameAssembly.dll"+15D81CB: 8B 40 3C              -  mov eax,[eax+3C]
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+15D81CE: 3B 46 38              -  cmp eax,[esi+38]
+"GameAssembly.dll"+15D81D1: 74 6E                 -  je GameAssembly.dll+15D8241
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+15D81D3: FF 35 20 4F 59 5B     -  push [GameAssembly.dll+28D4F20]
+"GameAssembly.dll"+15D81D9: E8 22 AE 2F 00        -  call GameAssembly.dll+18D3000
+"GameAssembly.dll"+15D81DE: FF 35 64 EF 5A 5B     -  push [GameAssembly.dll+28EEF64]
+"GameAssembly.dll"+15D81E4: 8B D8                 -  mov ebx,eax
+"GameAssembly.dll"+15D81E6: E8 85 FC A6 FE        -  call GameAssembly.dll+47E70
+"GameAssembly.dll"+15D81EB: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+15D81EE: 85 DB                 -  test ebx,ebx
+"GameAssembly.dll"+15D81F0: 0F 84 72 03 00 00     -  je GameAssembly.dll+15D8568
+"GameAssembly.dll"+15D81F6: 6A 00                 -  push 00
+"GameAssembly.dll"+15D81F8: 50                    -  push eax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30</ID>
+      <Description>"Fast Tasks (Skips additional steps of Tasks)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-24
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1B00831)
+define(bytes,8B 06 FF 46 28)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  mov eax,[esi]
+  mov [esi+28],7FFFFFFF
+  jmp return
+
+code:
+  mov eax,[esi]
+  inc [esi+28]
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov eax,[esi]
+  // inc [esi+28]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1B00831
+
+"GameAssembly.dll"+1B00809: E8 92 65 71 FE        -  call GameAssembly.dll+216DA0
+"GameAssembly.dll"+1B0080E: 68 98 DF 5A 5B        -  push GameAssembly.dll+28EDF98
+"GameAssembly.dll"+1B00813: E8 88 65 71 FE        -  call GameAssembly.dll+216DA0
+"GameAssembly.dll"+1B00818: 68 14 CE 5B 5B        -  push GameAssembly.dll+28FCE14
+"GameAssembly.dll"+1B0081D: E8 7E 65 71 FE        -  call GameAssembly.dll+216DA0
+"GameAssembly.dll"+1B00822: 83 C4 1C              -  add esp,1C
+"GameAssembly.dll"+1B00825: C6 05 48 B3 65 5B 01  -  mov byte ptr [GameAssembly.dll+299B348],01
+"GameAssembly.dll"+1B0082C: 56                    -  push esi
+"GameAssembly.dll"+1B0082D: 8B 75 08              -  mov esi,[ebp+08]
+"GameAssembly.dll"+1B00830: 57                    -  push edi
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1B00831: 8B 06                 -  mov eax,[esi]
+"GameAssembly.dll"+1B00833: FF 46 28              -  inc [esi+28]
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1B00836: FF B0 30 01 00 00     -  push [eax+00000130]
+"GameAssembly.dll"+1B0083C: 8B 80 2C 01 00 00     -  mov eax,[eax+0000012C]
+"GameAssembly.dll"+1B00842: 56                    -  push esi
+"GameAssembly.dll"+1B00843: FF D0                 -  call eax
+"GameAssembly.dll"+1B00845: 8B 46 2C              -  mov eax,[esi+2C]
+"GameAssembly.dll"+1B00848: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+1B0084B: 39 46 28              -  cmp [esi+28],eax
+"GameAssembly.dll"+1B0084E: 0F 8D 98 00 00 00     -  jnl GameAssembly.dll+1B008EC
+"GameAssembly.dll"+1B00854: 80 7E 30 00           -  cmp byte ptr [esi+30],00
+"GameAssembly.dll"+1B00858: 0F 84 8A 00 00 00     -  je GameAssembly.dll+1B008E8
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>36</ID>
+      <Description>"Discover Imposters (Activate Before Starting a Game for Full Effect)"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Discover Imposters (1/3) [Imposters have red names in game]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-25
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+132391E)
+define(bytes,0F 84 42 02 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  jmp return
+
+code:
+  je GameAssembly.dll+1323B66
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // je GameAssembly.dll+1323B66
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+132391E
+
+"GameAssembly.dll"+13238FC: 0F 84 E3 06 00 00     -  je GameAssembly.dll+1323FE5
+"GameAssembly.dll"+1323902: 6A 00                 -  push 00
+"GameAssembly.dll"+1323904: 50                    -  push eax
+"GameAssembly.dll"+1323905: E8 F6 42 00 00        -  call GameAssembly.dll+1327C00
+"GameAssembly.dll"+132390A: 8B D8                 -  mov ebx,eax
+"GameAssembly.dll"+132390C: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+132390F: 89 5D F8              -  mov [ebp-08],ebx
+"GameAssembly.dll"+1323912: 85 DB                 -  test ebx,ebx
+"GameAssembly.dll"+1323914: 0F 84 CB 06 00 00     -  je GameAssembly.dll+1323FE5
+"GameAssembly.dll"+132391A: 80 7B 2C 00           -  cmp byte ptr [ebx+2C],00
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+132391E: 0F 84 42 02 00 00     -  je GameAssembly.dll+1323B66
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1323924: FF 35 24 56 B6 5C     -  push [GameAssembly.dll+2905624]
+"GameAssembly.dll"+132392A: E8 B1 35 EF FE        -  call GameAssembly.dll+216EE0
+"GameAssembly.dll"+132392F: 6A 00                 -  push 00
+"GameAssembly.dll"+1323931: FF 35 D8 06 B6 5C     -  push [GameAssembly.dll+29006D8]
+"GameAssembly.dll"+1323937: 8B F0                 -  mov esi,eax
+"GameAssembly.dll"+1323939: 56                    -  push esi
+"GameAssembly.dll"+132393A: E8 81 BA 3F FF        -  call GameAssembly.dll+71F3C0
+"GameAssembly.dll"+132393F: 83 C4 10              -  add esp,10
+"GameAssembly.dll"+1323942: 85 F6                 -  test esi,esi
+"GameAssembly.dll"+1323944: 0F 84 9B 06 00 00     -  je GameAssembly.dll+1323FE5
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"Discover Imposters (2/3) [Imposters have red names in meeting]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-25
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1C241C4)
+define(bytes,80 78 2C 00 75 04)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  cmp byte ptr [eax+2C],00
+  jmp GameAssembly.dll+1C241CE
+  jmp return
+
+code:
+  cmp byte ptr [eax+2C],00
+  jne GameAssembly.dll+1C241CE
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // cmp byte ptr [eax+2C],00
+  // jne GameAssembly.dll+1C241CE
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1C241C4
+
+"GameAssembly.dll"+1C241A4: 8B 40 5C              -  mov eax,[eax+5C]
+"GameAssembly.dll"+1C241A7: 8B 00                 -  mov eax,[eax]
+"GameAssembly.dll"+1C241A9: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+1C241AB: 0F 84 C7 00 00 00     -  je GameAssembly.dll+1C24278
+"GameAssembly.dll"+1C241B1: 6A 00                 -  push 00
+"GameAssembly.dll"+1C241B3: 50                    -  push eax
+"GameAssembly.dll"+1C241B4: E8 47 3A 70 FF        -  call GameAssembly.dll+1327C00
+"GameAssembly.dll"+1C241B9: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+1C241BC: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+1C241BE: 0F 84 B4 00 00 00     -  je GameAssembly.dll+1C24278
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1C241C4: 80 78 2C 00           -  cmp byte ptr [eax+2C],00
+"GameAssembly.dll"+1C241C8: 75 04                 -  jne GameAssembly.dll+1C241CE
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1C241CA: 33 C0                 -  xor eax,eax
+"GameAssembly.dll"+1C241CC: EB 04                 -  jmp GameAssembly.dll+1C241D2
+"GameAssembly.dll"+1C241CE: 0F B6 47 2C           -  movzx eax,byte ptr [edi+2C]
+"GameAssembly.dll"+1C241D2: 8B 7E 38              -  mov edi,[esi+38]
+"GameAssembly.dll"+1C241D5: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+1C241D7: 74 2E                 -  je GameAssembly.dll+1C24207
+"GameAssembly.dll"+1C241D9: A1 70 D1 B4 5C        -  mov eax,[GameAssembly.dll+28ED170]
+"GameAssembly.dll"+1C241DE: F6 80 BB 00 00 00 02  -  test byte ptr [eax+000000BB],02
+"GameAssembly.dll"+1C241E5: 74 14                 -  je GameAssembly.dll+1C241FB
+"GameAssembly.dll"+1C241E7: 83 78 74 00           -  cmp dword ptr [eax+74],00
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Discover Imposters (3/3) [imposters have red names in chat]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-25
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1CC1BEB)
+define(bytes,8A 40 2C 84 C0)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  mov al,01
+  test al,al
+  jmp return
+
+code:
+  mov al,[eax+2C]
+  test al,al
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov al,[eax+2C]
+  // test al,al
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1CC1BEB
+
+"GameAssembly.dll"+1CC1BCE: 6A 00                 -  push 00
+"GameAssembly.dll"+1CC1BD0: 56                    -  push esi
+"GameAssembly.dll"+1CC1BD1: 84 C0                 -  test al,al
+"GameAssembly.dll"+1CC1BD3: 75 0B                 -  jne GameAssembly.dll+1CC1BE0
+"GameAssembly.dll"+1CC1BD5: E8 46 E4 FF FF        -  call GameAssembly.dll+1CC0020
+"GameAssembly.dll"+1CC1BDA: C6 45 E7 00           -  mov byte ptr [ebp-19],00
+"GameAssembly.dll"+1CC1BDE: EB 05                 -  jmp GameAssembly.dll+1CC1BE5
+"GameAssembly.dll"+1CC1BE0: E8 DB EB FF FF        -  call GameAssembly.dll+1CC07C0
+"GameAssembly.dll"+1CC1BE5: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+1CC1BE8: 8B 45 DC              -  mov eax,[ebp-24]
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1CC1BEB: 8A 40 2C              -  mov al,[eax+2C]
+"GameAssembly.dll"+1CC1BEE: 84 C0                 -  test al,al
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1CC1BF0: 75 09                 -  jne GameAssembly.dll+1CC1BFB
+"GameAssembly.dll"+1CC1BF2: C7 45 DC 00 00 00 00  -  mov [ebp-24],00000000
+"GameAssembly.dll"+1CC1BF9: EB 0C                 -  jmp GameAssembly.dll+1CC1C07
+"GameAssembly.dll"+1CC1BFB: 8B 45 E0              -  mov eax,[ebp-20]
+"GameAssembly.dll"+1CC1BFE: 8A 40 2C              -  mov al,[eax+2C]
+"GameAssembly.dll"+1CC1C01: 0F B6 C0              -  movzx eax,al
+"GameAssembly.dll"+1CC1C04: 89 45 DC              -  mov [ebp-24],eax
+"GameAssembly.dll"+1CC1C07: A1 A8 25 B4 5C        -  mov eax,[GameAssembly.dll+28E25A8]
+"GameAssembly.dll"+1CC1C0C: 8B 40 5C              -  mov eax,[eax+5C]
+"GameAssembly.dll"+1CC1C0F: 8B 00                 -  mov eax,[eax]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"Sabotage (Even as a Crewmate [Press Space Bar])"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-24
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+179A4BB)
+define(bytes,0F 84 A1 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  jmp return
+
+code:
+  je GameAssembly.dll+179A562
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // je GameAssembly.dll+179A562
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+179A4BB
+
+"GameAssembly.dll"+179A494: 0F 84 09 01 00 00     -  je GameAssembly.dll+179A5A3
+"GameAssembly.dll"+179A49A: 6A 00                 -  push 00
+"GameAssembly.dll"+179A49C: 50                    -  push eax
+"GameAssembly.dll"+179A49D: E8 5E D7 B8 FF        -  call GameAssembly.dll+1327C00
+"GameAssembly.dll"+179A4A2: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+179A4A5: 83 7E 10 00           -  cmp dword ptr [esi+10],00
+"GameAssembly.dll"+179A4A9: 0F 85 B7 00 00 00     -  jne GameAssembly.dll+179A566
+"GameAssembly.dll"+179A4AF: 85 C0                 -  test eax,eax
+"GameAssembly.dll"+179A4B1: 0F 84 AB 00 00 00     -  je GameAssembly.dll+179A562
+"GameAssembly.dll"+179A4B7: 80 78 2C 00           -  cmp byte ptr [eax+2C],00
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+179A4BB: 0F 84 A1 00 00 00     -  je GameAssembly.dll+179A562
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+179A4C1: 53                    -  push ebx
+"GameAssembly.dll"+179A4C2: FF 35 D4 44 59 5B     -  push [GameAssembly.dll+28D44D4]
+"GameAssembly.dll"+179A4C8: E8 33 8B 13 00        -  call GameAssembly.dll+18D3000
+"GameAssembly.dll"+179A4CD: 8B 0D AC E8 5B 5B     -  mov ecx,[GameAssembly.dll+28FE8AC]
+"GameAssembly.dll"+179A4D3: 83 C4 04              -  add esp,04
+"GameAssembly.dll"+179A4D6: 8B D8                 -  mov ebx,eax
+"GameAssembly.dll"+179A4D8: F6 81 BB 00 00 00 02  -  test byte ptr [ecx+000000BB],02
+"GameAssembly.dll"+179A4DF: 74 15                 -  je GameAssembly.dll+179A4F6
+"GameAssembly.dll"+179A4E1: 83 79 74 00           -  cmp dword ptr [ecx+74],00
+"GameAssembly.dll"+179A4E5: 75 0F                 -  jne GameAssembly.dll+179A4F6
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"No Door Lock Cooldown"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-24
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1EB3860)
+define(bytes,F3 0F 10 46 38)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  movss xmm0,[_float]
+  jmp return
+
+_float:
+  dd (float)0.00
+
+code:
+  movss xmm0,[esi+38]
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss xmm0,[esi+38]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1EB3860
+
+"GameAssembly.dll"+1EB3833: 80 3D 3D D6 65 5B 00     -  cmp byte ptr [GameAssembly.dll+299D63D],00
+"GameAssembly.dll"+1EB383A: 75 14                    -  jne GameAssembly.dll+1EB3850
+"GameAssembly.dll"+1EB383C: 68 40 23 5A 5B           -  push GameAssembly.dll+28E2340
+"GameAssembly.dll"+1EB3841: E8 5A 35 36 FE           -  call GameAssembly.dll+216DA0
+"GameAssembly.dll"+1EB3846: 83 C4 04                 -  add esp,04
+"GameAssembly.dll"+1EB3849: C6 05 3D D6 65 5B 01     -  mov byte ptr [GameAssembly.dll+299D63D],01
+"GameAssembly.dll"+1EB3850: A1 40 23 5A 5B           -  mov eax,[GameAssembly.dll+28E2340]
+"GameAssembly.dll"+1EB3855: 56                       -  push esi
+"GameAssembly.dll"+1EB3856: 8B 75 08                 -  mov esi,[ebp+08]
+"GameAssembly.dll"+1EB3859: F6 80 BB 00 00 00 02     -  test byte ptr [eax+000000BB],02
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1EB3860: F3 0F 10 46 38           -  movss xmm0,[esi+38]
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1EB3865: F3 0F 11 45 08           -  movss [ebp+08],xmm0
+"GameAssembly.dll"+1EB386A: 74 14                    -  je GameAssembly.dll+1EB3880
+"GameAssembly.dll"+1EB386C: 83 78 74 00              -  cmp dword ptr [eax+74],00
+"GameAssembly.dll"+1EB3870: 75 0E                    -  jne GameAssembly.dll+1EB3880
+"GameAssembly.dll"+1EB3872: 50                       -  push eax
+"GameAssembly.dll"+1EB3873: E8 F8 94 2F FE           -  call GameAssembly.dll+1ACD70
+"GameAssembly.dll"+1EB3878: F3 0F 10 45 08           -  movss xmm0,[ebp+08]
+"GameAssembly.dll"+1EB387D: 83 C4 04                 -  add esp,04
+"GameAssembly.dll"+1EB3880: F3 0F 5C 45 0C           -  subss xmm0,[ebp+0C]
+"GameAssembly.dll"+1EB3885: 6A 00                    -  push 00
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>42</ID>
+      <Description>"No Locked Doors"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-27
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+1EB3909)
+define(bytes,F6 C4 44 7A 1B)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  test ah,44
+  jmp return
+
+code:
+  test ah,44
+  jp GameAssembly.dll+1EB3929
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // test ah,44
+  // jp GameAssembly.dll+1EB3929
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+1EB3909
+
+"GameAssembly.dll"+1EB38E0: C7 44 24 04 00 00 00 00  -  mov [esp+04],00000000
+"GameAssembly.dll"+1EB38E8: F3 0F 11 04 24           -  movss [esp],xmm0
+"GameAssembly.dll"+1EB38ED: E8 4E 44 AB FE           -  call GameAssembly.dll+967D40
+"GameAssembly.dll"+1EB38F2: D9 5D 0C                 -  fstp dword ptr [ebp+0C]
+"GameAssembly.dll"+1EB38F5: F3 0F 10 45 0C           -  movss xmm0,[ebp+0C]
+"GameAssembly.dll"+1EB38FA: 83 C4 0C                 -  add esp,0C
+"GameAssembly.dll"+1EB38FD: 0F 57 C9                 -  xorps xmm1,xmm1
+"GameAssembly.dll"+1EB3900: F3 0F 11 46 34           -  movss [esi+34],xmm0
+"GameAssembly.dll"+1EB3905: 0F 2E C1                 -  ucomiss xmm0,xmm1
+"GameAssembly.dll"+1EB3908: 9F                       -  lahf 
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+1EB3909: F6 C4 44                 -  test ah,44
+"GameAssembly.dll"+1EB390C: 7A 1B                    -  jp GameAssembly.dll+1EB3929
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+1EB390E: 8B 06                    -  mov eax,[esi]
+"GameAssembly.dll"+1EB3910: FF B0 E0 00 00 00        -  push [eax+000000E0]
+"GameAssembly.dll"+1EB3916: 8B 80 DC 00 00 00        -  mov eax,[eax+000000DC]
+"GameAssembly.dll"+1EB391C: 6A 01                    -  push 01
+"GameAssembly.dll"+1EB391E: 56                       -  push esi
+"GameAssembly.dll"+1EB391F: FF D0                    -  call eax
+"GameAssembly.dll"+1EB3921: 83 C4 0C                 -  add esp,0C
+"GameAssembly.dll"+1EB3924: B0 01                    -  mov al,01
+"GameAssembly.dll"+1EB3926: 5E                       -  pop esi
+"GameAssembly.dll"+1EB3927: 5D                       -  pop ebp
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"Venting (Even as Crewmate)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Us.exe
+  Version: 
+  Date   : 2021-04-30
+  Author : pc1
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+2081D1F)
+define(bytes,80 7F 2C 00 74 26)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$100)
+
+label(code)
+label(return)
+
+newmem:
+  cmp byte ptr [edi+2C],00
+  jmp return
+
+code:
+  cmp byte ptr [edi+2C],00
+  je GameAssembly.dll+2081D4B
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // cmp byte ptr [edi+2C],00
+  // je GameAssembly.dll+2081D4B
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "GameAssembly.dll"+2081D1F
+
+"GameAssembly.dll"+2081CFF: 57                    -  push edi
+"GameAssembly.dll"+2081D00: 8B 7D 0C              -  mov edi,[ebp+0C]
+"GameAssembly.dll"+2081D03: C7 45 FC FF FF 7F 7F  -  mov [ebp-04],7F7FFFFF
+"GameAssembly.dll"+2081D0A: 85 FF                 -  test edi,edi
+"GameAssembly.dll"+2081D0C: 0F 84 79 01 00 00     -  je GameAssembly.dll+2081E8B
+"GameAssembly.dll"+2081D12: 6A 00                 -  push 00
+"GameAssembly.dll"+2081D14: 57                    -  push edi
+"GameAssembly.dll"+2081D15: E8 C6 48 B2 FF        -  call GameAssembly.dll+1BA65E0
+"GameAssembly.dll"+2081D1A: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+2081D1D: 8B F0                 -  mov esi,eax
+// ---------- INJECTING HERE ----------
+"GameAssembly.dll"+2081D1F: 80 7F 2C 00           -  cmp byte ptr [edi+2C],00
+"GameAssembly.dll"+2081D23: 74 26                 -  je GameAssembly.dll+2081D4B
+// ---------- DONE INJECTING  ----------
+"GameAssembly.dll"+2081D25: 80 7F 2D 00           -  cmp byte ptr [edi+2D],00
+"GameAssembly.dll"+2081D29: 75 20                 -  jne GameAssembly.dll+2081D4B
+"GameAssembly.dll"+2081D2B: 85 F6                 -  test esi,esi
+"GameAssembly.dll"+2081D2D: 0F 84 58 01 00 00     -  je GameAssembly.dll+2081E8B
+"GameAssembly.dll"+2081D33: 6A 00                 -  push 00
+"GameAssembly.dll"+2081D35: 56                    -  push esi
+"GameAssembly.dll"+2081D36: E8 75 5B 2A FF        -  call GameAssembly.dll+13278B0
+"GameAssembly.dll"+2081D3B: 83 C4 08              -  add esp,08
+"GameAssembly.dll"+2081D3E: 84 C0                 -  test al,al
+"GameAssembly.dll"+2081D40: 74 04                 -  je GameAssembly.dll+2081D46
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov eax,[eax+54]</Description>
+      <Address>5A7907B2</Address>
+      <ModuleName>GameAssembly.dll</ModuleName>
+      <ModuleNameOffset>1ED07B2</ModuleNameOffset>
+      <Before>
+        <Byte>1A</Byte>
+        <Byte>5B</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>5C</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>54</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>C4</Byte>
+        <Byte>8D</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_health</Name>
+      <Address>008D0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_hp</Name>
+      <Address>003C0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_hpoints</Name>
+      <Address>008D0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_pammo</Name>
+      <Address>04DD0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_chharrelation</Name>
+      <Address>011A0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_chhharrelation</Name>
+      <Address>0B1C0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_Shop$</Name>
+      <Address>011C0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_shopmoney</Name>
+      <Address>0B140000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_smoffset</Name>
+      <Address>0B140020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_shopmoneyy</Name>
+      <Address>0B140010</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>
